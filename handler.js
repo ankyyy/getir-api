@@ -30,7 +30,7 @@ async function getRecords({ startDate, endDate, minCount, maxCount }) {
       },
     },
   ]);
-  return { code: 0, msg: 'Success', records };
+  return records;
 }
 
 module.exports = {
