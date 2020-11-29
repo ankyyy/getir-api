@@ -9,8 +9,8 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const model = mongoose.model('records', schema);
+const recordsModel = mongoose.model('records', schema);
 
 module.exports = {
-    model
+  recordsModel
 }

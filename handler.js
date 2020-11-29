@@ -1,7 +1,7 @@
-const { model } = require('./model');
-
+const { recordsModel } = require('./model');
+//TODO: check for invalid date
 async function getRecords({ startDate, endDate, minCount, maxCount }) {
-  const records = await model.aggregate([
+  const records = await recordsModel.aggregate([
     {
       $addFields: {
         totalCount: {

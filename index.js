@@ -1,11 +1,10 @@
 const express = require('express'),
   bodyParser = require('body-parser'),
   cors = require('cors');
-// errorhandler = require('errorhandler'),
 
 require('dotenv').config()
-require('./database')
 
+require('./database')
 const router = require('./router')
 
 const port = process.env.PORT || 3000
