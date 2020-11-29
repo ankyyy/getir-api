@@ -16,17 +16,20 @@ const schema = {
     required: ["startDate", "endDate", "minCount", "maxCount"]
 }
 
-router.post('/records', (req, res, next) => {
+const validator = (req,res,next)=>{
     if (!ajv.validate(schema, req.body)) {
-        return res.status(400).send('Bad Request:Payload not correct')
+        return res.status(400).send({ code: 1, msg: 'Bad Request:Payload not correct' })
     }
     next()
-}, async (req, res) => {
+}
+
+router.post('/records', validator, async (req, res) => {
     try {
         const records = await handlers.getRecords(req.body)
         res.send({ code: 0, msg: 'Success', records })
-    } catch (e) {
-        res.status(500).send('Internal server error')
+    } catch (error) {
+        console.log('Internal server error',error)
+        res.status(500).send({ code: 2, msg: 'Internal server error' })
     }
 })
 

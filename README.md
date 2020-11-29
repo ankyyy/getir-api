@@ -1,6 +1,10 @@
 # getir-api
 
-To test the API, import this in POSTMAN
+## Steps
+yarn && yarn start
+
+### To test the API, import this in POSTMAN
+
 
 curl --location --request POST 'https://warm-everglades-81598.herokuapp.com/records' \
 --header 'Content-Type: application/json' \
