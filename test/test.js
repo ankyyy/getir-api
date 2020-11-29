@@ -1,14 +1,15 @@
+// setup
 require('dotenv').config()
-require('../database')
-
+const db = require('../database')
+db.connect()
 
 const { getRecords } = require('../handler')
 
-describe('My Test Suite', () => {
+describe('getRecords', () => {
     afterAll(()=>{
-        require('./teardown')
+        db.disconnect()
     })
-    it('My Test Case', async () => {
+    it('should return filtered data', async () => {
         const input = {
             "startDate": "2015-01-26",
             "endDate": "2015-02-2",
