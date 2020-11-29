@@ -1,5 +1,5 @@
 const { recordsModel } = require('./model');
-//TODO: check for invalid date
+
 async function getRecords({ startDate, endDate, minCount, maxCount }) {
   const records = await recordsModel.aggregate([
     {
